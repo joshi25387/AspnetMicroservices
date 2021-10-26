@@ -1,5 +1,3 @@
-using Employee.Application;
-using Employee.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -8,12 +6,14 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Salary.Application;
+using Salary.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Employee.API
+namespace Salary.API
 {
     public class Startup
     {
@@ -33,7 +33,7 @@ namespace Employee.API
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Employee.API", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Salary.API", Version = "v1" });
             });
         }
 
@@ -44,7 +44,7 @@ namespace Employee.API
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Employee.API v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Salary.API v1"));
             }
 
             app.UseRouting();
